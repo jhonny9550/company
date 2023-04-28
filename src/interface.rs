@@ -47,7 +47,7 @@ fn validate_user_input(input: &str) -> bool {
 }
 
 // Ask user input
-pub fn read_user_input() -> String {
+pub fn read_user_input() -> Result<String, String> {
     let mut user_input = String::from("");
 
     print!("\n");
@@ -59,9 +59,9 @@ pub fn read_user_input() -> String {
 
     // If user input is wrong, ask again
     if !validate_user_input(&user_input) {
-        eprint!("Wrong input! Try again.");
+        eprintln!("Wrong input! Try again.");
         read_user_input()
     } else {
-        user_input
+        Ok(user_input)
     }
 }

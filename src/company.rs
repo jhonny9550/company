@@ -15,6 +15,15 @@ impl Department {
             _ => false,
         }
     }
+    pub fn from_str(val: &str) -> Option<Self> {
+        match val {
+            "Design" => Some(Department::Design),
+            "Engineering" => Some(Department::Engineering),
+            "Marketing" => Some(Department::Marketing),
+            "Sales" => Some(Department::Sales),
+            _ => None,
+        }
+    }
 }
 
 pub type Company = HashMap<Department, Vec<String>>;
